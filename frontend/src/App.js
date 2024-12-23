@@ -61,7 +61,15 @@ function App() {
           {filteredCandidates.map(candidate => (
             <tr key={candidate.id}>
               <td>{candidate.name}</td>
-              <td>{candidate.skills}</td>
+              <td>
+                <div className="skill-tag-container">
+                  {candidate.skills.split(', ').map((skill, index) => (
+                    <span key={index} className="skill-tag">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </td>
               <td>{candidate.experience}</td>
             </tr>
           ))}
